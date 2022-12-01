@@ -1,0 +1,38 @@
+{
+  "extends": "nx/presets/npm.json",
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "nx/tasks-runners/default",
+      "options": {
+        "cacheableOperations": [
+          "build",
+          "ionic:build",
+          "appflow:install",
+          "build-storybook"
+        ]
+      }
+    }
+  },
+  "targetDefaults": {
+    "build": {
+      "dependsOn": [
+        "^build"
+      ]
+    }
+  },
+  "affected": {
+    "defaultBase": "main"
+  },
+  "generators": {
+    "@nrwl/react": {
+      "application": {
+        "babel": true
+      },
+      "component": {
+        "style": "scss",
+        "export": true,
+        "pascalCaseFiles": true
+      }
+    }
+  }
+}

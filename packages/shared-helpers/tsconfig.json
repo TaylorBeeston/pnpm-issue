@@ -1,0 +1,23 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "target": "es6",
+    "module": "ES2015",
+    "declaration": true,
+    "strict": true,
+    "esModuleInterop": true,
+    "lib": ["es5", "dom"],
+    "noLib": false,
+    "rootDir": "src",
+    "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "node",
+    "baseUrl": ".",
+    "paths": {
+      "@images/*": ["src/images/*"],
+      "@arrays/*": ["src/arrays/*"]
+    }
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "test", "example"]
+}

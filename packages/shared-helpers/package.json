@@ -1,0 +1,48 @@
+{
+  "name": "@shared/helpers",
+  "version": "0.0.0",
+  "description": "",
+  "main": "./dist/index.js",
+  "module": "./dist/helpers.esm.js",
+  "private": true,
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "node ./scripts/build.mjs && shx cp ./scripts/mixedEntrypoint.js ./dist/index.js && dts-bundle-generator src/index.ts -o dist/helpers.d.ts --no-check",
+    "start": "aqu watch",
+    "lint": "aqu lint",
+    "lint:fix": "aqu lint --fix",
+    "test": "aqu test --passWithNoTests",
+    "test:watch": "aqu test --passWithNoTests --watch",
+    "test:coverage": "aqu test --silent --ci --coverage --coverageReporters=\"text\" --coverageReporters=\"text-summary\"",
+    "prepare": "pnpm build",
+    "release": "np",
+    "size": "size-limit",
+    "size:why": "size-limit --why"
+  },
+  "author": "Taylor Beeston <beeston.taylor@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/WeLibraryOS/learncardapp#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WeLibraryOS/learncardapp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/WeLibraryOS/learncardapp/issues"
+  },
+  "devDependencies": {
+    "@esbuild-plugins/node-resolve": "^0.1.4",
+    "@types/node": "^18.8.2",
+    "aqu": "0.4.3",
+    "dts-bundle-generator": "^7.1.0",
+    "esbuild": "^0.15.16",
+    "rimraf": "^3.0.2",
+    "shx": "^0.3.4",
+    "typescript": "^4.8.4"
+  },
+  "types": "./dist/helpers.d.ts",
+  "dependencies": {
+    "query-string": "7.1.1"
+  }
+}
